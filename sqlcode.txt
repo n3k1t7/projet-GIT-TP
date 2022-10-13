@@ -1,3 +1,4 @@
+1 2 22
 NOPE NOT NB OF SALES : 
 SELECT bmw.name,
 	   COUNT(1) AS "Number of sales"
