@@ -1,0 +1,19 @@
+NB OF SALES : 
+SELECT bmw.name,
+	   COUNT(1) AS "Number of sales"
+FROM
+(
+	SELECT brand
+		  ,name
+	 	  ,body_type
+		  ,fuel_type
+		  ,year
+	 	  ,CASE WHEN mileage IS NULL THEN 0 ELSE mileage END
+	 	  ,power
+	 	  ,price/82.36 price_eur
+	FROM public.cars 
+	WHERE brand = 'BMW'
+    AND   year IS NOT NULL
+)bmw
+GROUP BY 1
+ORDER BY 2
